@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+</head>
+<body>
+    {% if messages %}
+        {% for message in messages %}
+            <div>{{message}}</div>
+        {% endfor %}
+    {% endif %}
+    <img src="{{user.profile.image.url}}">
+    <p>Username:-{{user.username}}</p>
+    <p>Email:-{{ user.email }}</p>
+
+    <form method="POST" enctype="form-group">
+        {% csrf_token %}
+        <p>
+        <fieldset>
+            {{u_form}}
+            {{p_form}}
+        </fieldset>
+        </p>
+        <button type="submit">Update Profile</button>
+    </form>  
+
+</body>
+</html>
