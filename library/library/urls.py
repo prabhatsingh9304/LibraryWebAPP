@@ -21,6 +21,8 @@ from django.views.generic import RedirectView
 from user import views as views_user
 from django.contrib.auth import views as auth_views
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('catalog/', include('catalog.urls')),

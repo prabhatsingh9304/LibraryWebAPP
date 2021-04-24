@@ -23,5 +23,6 @@ urlpatterns = [
     path('genre/<int:pk>/update_genre/', views.GenreUpdate.as_view(), name='genre-update'),
     path('genre/<int:pk>/delete_genre/', views.GenreDelete.as_view(), name='genre-delete'),
     path('book/<uuid:pk>/borrow/', views.borrow_book, name='borrow_book'),
-    path('search/',views.search,name='search')
+    path('search/',views.search,name='search'),
+     
 ]

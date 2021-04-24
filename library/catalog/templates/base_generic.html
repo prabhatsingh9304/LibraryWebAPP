@@ -25,7 +25,8 @@
           <li><a href="{% url 'profile'%}?next={{request.path}}">Profile</a></li>
           <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
           <li>
-          <form method="GET" action="{% url 'search' %}">
+          <form method=POST action="{% url 'search' %}">
+            {% csrf_token %}
             <input type="search" placeholder="search" aria-label="Search" name="search" id="search">  
             <button type="submit" class="btn btn-success">Search</button>
           </form>

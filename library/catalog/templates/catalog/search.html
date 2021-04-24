@@ -1,11 +1,25 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Search Results:</h1>
+{% if search%}
+
   
-    {% for book in book_list %}
-      
+  
+  {% if book_search%}
+  <h1>Search Results for {{search}}</h1><br/>
+    {% for book in book_search %}
+  <ul>
+    <li><a href="{{ book.get_absolute_url }}">{{book}}-{{book.author}}</a><br/></li>
+  </ul>
     {% endfor %}
+  {%else%}
+  <h1>No Results found for {{search}}
+  {%endif%}
+
+{%else%}
+  <h2>Your Forget to search</h2>
+   
+{% endif %}
 
  
 {% endblock %}

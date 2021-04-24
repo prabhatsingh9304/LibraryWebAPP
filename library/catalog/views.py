@@ -212,6 +212,8 @@ def borrow_book(request, pk):
     return render(request, 'catalog/book_detail.html', context)
 
 def search(request):
-    books=Book.objects.all()
-    context= {'book': book}
-    return render(request,'catalog/search.html',context)
+    if request.method == "POST":
+        search = request.POST['search']
+        book_search = Book.objects.filter(title__contains=search)
+        context= {'search': search,'book_search':book_search}
+        return render(request,'catalog/search.html',context)
